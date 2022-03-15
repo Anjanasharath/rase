@@ -1,0 +1,25 @@
+{% extends 'registration/registration.html' %}
+
+<!-- login page -->
+{% block login_page %}
+
+<div class="container">
+    <div class="row min-vh-100 align-items-center">
+        <div class="col-lg-8"></div>
+        <div class="col-lg-4">
+            <div class="card custom-card">
+                <div class="card-body">
+                    <p>Login</p>
+                    <form action="" method="post" class="custom-form">
+                        {% csrf_token %}
+                        {{form.as_p}}
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

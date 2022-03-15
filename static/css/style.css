@@ -1,0 +1,64 @@
+:root{
+    --navbar-height: 56px;
+    --footer-height:56px;
+}
+
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.min-vh-100 {
+    height: calc( 100vh - 100px );
+}
+
+.footer{
+    height: var(--footer-height);
+    text-align: center;
+    position: fixed;
+    top: 100%;
+    width: 100%;
+    transform: translateY(-100%);
+}
+
+/* forms */
+.custom-form{
+
+}
+
+.custom-form p{
+    display: flex;
+    flex-direction: column;
+}
+
+.custom-form label{
+   margin-bottom: 10px; 
+}
+.custom-form input{
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.custom-form .helptext{
+    color: green;
+}
+
+
+/* card */
+.custom-card{
+    border-radius: 10px;
+
+}
+
+.card-body > p{
+font-size: 24px;
+font-weight: bold;
+letter-spacing: 1px;
+
+}
