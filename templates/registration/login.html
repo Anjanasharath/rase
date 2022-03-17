@@ -3,13 +3,20 @@
 <!-- login page -->
 {% block login_page %}
 
-<div class="container">
-    <div class="row min-vh-100 align-items-center">
-        <div class="col-lg-8"></div>
-        <div class="col-lg-4">
+<section class="container-fluid p-5">
+    <div class="row justify-content-center h-100 align-items-center">
+        <div class="col-lg-8">
+
+            <h1 class="text-light">Login</h1>
+            <p class="text-white-50">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga itaque ratione quos explicabo consectetur. Voluptate odit architecto velit consequatur suscipit voluptates sunt tenetur quis, accusamus totam fuga molestias, quidem veniam.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Id amet eos voluptatem possimus reprehenderit illo modi illum ipsum eveniet provident assumenda nobis debitis fuga, aliquid quos tempora quia commodi delectus?
+            </p>
+
+        </div>
+        <div class="col-lg-3">
             <div class="card custom-card">
                 <div class="card-body">
-                    <p>Login</p>
                     <form action="" method="post" class="custom-form">
                         {% csrf_token %}
                         {{form.as_p}}
@@ -19,7 +26,7 @@
             </div>
         </div>
     </div>
-</div>
+</section>
 
 
 {% endblock %}
