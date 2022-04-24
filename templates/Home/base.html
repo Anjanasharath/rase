@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- styles -->
+    <!-- boootstrap -->
+    <link rel="stylesheet" href="{% static 'bootstrap-5.0.2-dist/css/bootstrap.css' %}" />
+    <!-- font awesome -->
+    <link rel="stylesheet" href="{% static 'fontawesome-free-6.1.1-web/css/all.css' %}" />
+    <!-- custom -->
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+
+    <title>RASE | {% block title %}{% endblock %}</title>
+</head>
+
+<body>
+    <header class="fixed-top">{% include 'Home/includes/navbar.html' %}</header>
+    <main class="d-flex">
+        <aside>
+
+            {% include 'Home/includes/sidebar.html' %}
+
+        </aside>
+
+        <section class="main">
+            <!--content-block-->
+            {% block content %}{% endblock %}
+        </section>
+    </main>
+
+    <footer class="d-flex justify-content-center align-items-center text-muted bg-light">
+        All Rights are Reserved &copy; 2022
+    </footer>
+
+    <!-- scripts -->
+    <!-- bootstrap -->
+    <script src="{% static 'bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- fontawesome -->
+    <script src="{% static 'fontawesome-free-6.1.1-web/js/all.min.js' %}"></script>
+
+    <!-- custom -->
+    <script src="{% static 'scripts.js' %}"></script>
+</body>
+
+</html>

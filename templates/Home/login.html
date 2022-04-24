@@ -1,0 +1,47 @@
+{% extends "Home/base.html" %}
+
+{% block content %}
+<div class="container h-100">
+    <div class="row align-items-center justify-content-center h-100">
+        <div class="col-lg-5">
+            <h2 class="mb-3">Login</h2>
+            <hr />
+
+            {% if next %}
+            {% if user.is_authenticated %}
+            <p>Your account doesn't have access to this page. To proceed,
+                please login with an account that has access.</p>
+            {% else %}
+            <p>Please login to see this page.</p>
+            {% endif %}
+            {% endif %}
+
+            <form method="post">
+                {% csrf_token %}
+                <table class="table table-borderless ">
+                    {{form.as_table}}
+                </table>
+
+                <div class="d-flex mb-3 w-100">
+
+                    <a class="" href="">Forgot password?</a>
+                    <a class="ms-auto" href="{% url 'register' %}">Don't have an account?</a>
+
+                </div>
+                {% if form.errors %}
+                <div class="alert alert-danger">
+                    <ul>
+                        {% for error in form.errors %}
+                        <li>{{error}}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+                <button type="submit" class="btn btn-primary w-25">Login</button>
+                <input type="hidden" name="next" value="{{ next }}">
+            </form>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

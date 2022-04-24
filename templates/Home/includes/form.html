@@ -1,0 +1,28 @@
+<form action="" class="needs-validation" novalidate method="post">
+
+    {% csrf_token %}
+    {% for field in form %}
+
+    <div class="mb-3">
+        {{field.label_tag}}
+        {{ field }}
+
+
+        <div class="invalid-feedback">
+            {{ field.error }}
+        </div>
+
+
+        {% if field.help_text %}
+        <div id="validationServer{{field}}" class="valid-feedback">
+            {{ field.help_text|safe }}
+        </div>
+        {% endif %}
+
+    </div>
+
+
+    {% endfor %}
+
+    <button class="btn btn-primary" type="submit">{% block form_btn_txt %}Submit{% endblock %}</button>
+</form>

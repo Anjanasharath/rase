@@ -1,0 +1,81 @@
+{% extends 'Home/base.html' %}
+{% load static %}
+
+<!--content-block-->
+{% block content %}
+
+<section class="h-100">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center justify-content-center">
+            <div class="col">
+                <div class="d-flex search-input-group mx-auto">
+                    <form action="{% url 'DashBoard:search' %}" class="d-flex search-input-group  w-50  mx-auto"
+                        method="get">
+                        {% csrf_token %}
+                        <input class="form-control search-input mx-auto shadow-sm" type="text" name="query"
+                            placeholder="Search Here.." id="" />
+                        <button type="submit" class="btn d-flex px-3">
+                            <i class="fas fa-search my-auto" aria-hidden="true"></i>
+                        </button>
+                    </form>
+                </div>
+
+                {% block search %}{% endblock %}
+            </div>
+        </div>
+    </div>
+</section>
+<section class="h-100 bg-green">
+
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{% static 'images/cl1.jpg' %}" class="d-block w-100" alt="flower" />
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/cl.jpg' %}" class="d-block w-100" alt="cl" />
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/d.jpg' %}" class="d-block w-100" alt="d" />
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam quo hic
+        doloremque corporis eveniet rerum, autem ullam at, eligendi perspiciatis
+        aut iure recusandae tempora corrupti voluptate possimus laborum
+        necessitatibus distinctio voluptatem nihil molestias. Eligendi mollitia
+        molestias porro inventore quos alias numquam voluptate officia odio,
+        saepe laborum sapiente ducimus voluptatibus blanditiis explicabo
+        dolorum. Quos odio obcaecati itaque iusto at! Sint eum itaque veniam
+        aperiam, rerum deleniti beatae inventore. Beatae vero quas, quod quaerat
+        aspernatur dolore nam vitae amet perferendis facere doloremque ab eos
+        voluptatum? Itaque nostrum nemo iste? Vitae ipsum, excepturi blanditiis
+        eaque fugit itaque ratione eos? Modi minus assumenda amet.
+    </p>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt
+        nostrum voluptatem amet laudantium incidunt enim aut fuga delectus
+        corrupti obcaecati veniam architecto qui sit, ab repellat ex totam
+        labore officiis reprehenderit dicta non cumque magni. Error odit,
+        voluptates impedit qui expedita rerum dolore ea a eligendi vitae cumque
+        asperiores sunt facere debitis voluptatum, perspiciatis porro ducimus
+        dignissimos consequatur amet. Animi laboriosam voluptatum fugit ad totam
+        quis ducimus incidunt perspiciatis accusamus porro corporis, esse
+        similique tempora neque veritatis magnam cum! Et vitae nihil quas autem
+        assumenda. Vitae corrupti nostrum aut eum reiciendis, magnam, saepe
+        ratione ex quae voluptatum ipsum ad perferendis.
+    </p>
+</section>
+
+{% endblock %}
