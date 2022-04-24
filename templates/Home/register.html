@@ -12,7 +12,7 @@
             <p>You are already registered</p>
             {% else %}
 
-            <form method="post" action="{% url 'register' %}">
+            <form method="post" action="{% url 'DashBoard:register' %}">
                 {% csrf_token %}
                 <table class="table table-borderless align-middle">
                     {{form.as_table}}
@@ -26,7 +26,7 @@
                     </ul>
                 </div>
                 {% endif %}
-                <p><a class="link mb-3" href="{% url 'login' %}">Already have an account?</a></p>
+                <p><a class="link mb-3" href="{% url 'DashBoard:login' %}">Already have an account?</a></p>
 
                 <button type="submit" class="btn btn-primary w-25">Register</button>
                 <input type="hidden" name="next" value="{{ next }}">
