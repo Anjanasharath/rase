@@ -1,0 +1,54 @@
+{% extends 'Home/base.html' %}
+
+<!--content-block-->
+{% block content %}
+
+<div class="container">
+    <h2>Add Job Offer</h2>
+    <form action="" method="post">
+        {% csrf_token %}
+        <div style="width: 50%;">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" id="title" name="title">
+            </div>
+            <div class="form-group">
+                <label for="companyname">companyname</label>
+                <input type="text" class="form-control" id="companyname" name="companyname">
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea class="form-control" id="description" name="description"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="eligibilities">Eligibilities</label>
+                <textarea class="form-control" id="eligibilities" name="eligibilities"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="location">Location</label>
+                <input type="text" class="form-control" id="location" name="location">
+            </div>
+            <div class="form-group">
+                <label for="salary">Salary</label>
+                <input type="text" class="form-control" id="salary" name="salary">
+            </div>
+            <div class="form-group">
+                <label for="lastdate">Lastdate</label>
+                <input type="date" class="form-control" id="lastdate" name="lastdate">
+            </div>
+            <div class="form-group">
+                <label for="contact">reference</label>
+                <input type="text" class="form-control" id="contact" name="contact">
+            </div>
+            <div class="form-group">
+                <label for="contact">Apply URL</label>
+                <input type="url" class="form-control" id="applyurl" name="applyurl">
+            </div>
+
+
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+</div>
+{% endblock %}

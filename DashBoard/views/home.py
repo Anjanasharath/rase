@@ -8,7 +8,7 @@ class HomeIndexView(View):
         if request.user.is_authenticated:
             if request.user.is_staff:
                 return redirect('/admin')
-            return redirect('/dashboard')
+            return redirect('DashBoard:dashboard')
         return render(request, 'Home/home.html')
 
 
@@ -22,6 +22,7 @@ class ContactView(TemplateView):
 
 class Search(TemplateView):
     template_name = 'Home/search.html'
+
 
 class EventsView(View):
     def get(self, request):
