@@ -1,6 +1,6 @@
 from dataclasses import field
 from multiprocessing import context
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.views import View
 from ..models import Event
 from ..forms import EventForm
@@ -23,6 +23,13 @@ class AddEventView(View):
             'form': form
         }
         return render(request, 'Admin/events/create.html', context)
+    
+    def post(self, request):
+        form = EventForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('Admin:Events')
+        return render(request, 'Admin/events/create.html', {'form': form})
 
 class EditEventView(View):
     def get(self, request, pk):
