@@ -11,6 +11,7 @@ class JobOffer(models.Model):
     lastdate = models.DateField()
     reference = models.CharField(max_length=100, null=True)
     applyurl = models.URLField(max_length=200)
+    postedby = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
