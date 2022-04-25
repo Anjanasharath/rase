@@ -22,16 +22,15 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'DashBoard:contact_us' %}">Contact Us</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'DashBoard:contact_us' %}">Contact Us</a>
-                </li>
+
+                {% if not user.is_authenticated %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'DashBoard:login' %}">Login</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'DashBoard:register' %}">Register</a>
                 </li>
-                {% if user.is_authenticated %}
+                {% else %}
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{% url 'DashBoard:dashboard' %}">Dashboard</a>
                 </li>
