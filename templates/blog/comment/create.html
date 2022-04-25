@@ -1,0 +1,25 @@
+{% extends "Home/base.html" %}
+
+
+{% block content %}
+<div class="container-fluid">
+    <h2 class="mb-3 sticky-top bg-white p-3 shadow-sm">Post A Complaint</h2>
+    <div class="row">
+        <div class="col">
+
+            <form method="post" action="{% url 'complaint_create' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table class="table table-striped">
+                    {{complaint_form.as_table}}
+                    {{complaint_location_form.as_table}}
+                    {{complaint_image_form.as_table}}
+                </table>
+
+
+                <button type="submit" class="btn btn-primary w-25 mb-3">Create</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

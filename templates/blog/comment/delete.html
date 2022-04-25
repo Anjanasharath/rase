@@ -1,0 +1,22 @@
+{% extends "Home/base.html" %}
+
+<!--content-block-->
+{% block content %}
+<div class="container h-100">
+  <div class="row justify-content-center align-items-center h-100">
+    <div class="col-lg-6">
+      <div class="card shadow">
+        <div class="card-body">
+          <h5 class="card-title">Delete</h5>
+          <p class="card-text">Are you sure want to delete?</p>
+          <form action="" method="post">
+            {% csrf_token %}
+            <button class="btn btn-danger" type="submit">Delete</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

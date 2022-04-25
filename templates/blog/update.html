@@ -1,0 +1,41 @@
+{% extends "Home/base.html" %}
+{% block content %}
+<div class="container-fluid">
+    <h2 class="mb-3 sticky-top bg-white p-3 shadow-sm">Update Blog</h2>
+    <div class="row">
+        <div class="col">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table class="table table-striped">
+                    {{blog_form.as_table}}
+                    <tr>
+                        <td>Images</td>
+                        <td>
+                            <div class="row">
+                                {% for image in blog_images %}
+                                <div class="col-lg-4 mb-3">
+                                    <div class="card" style="width: 18rem">
+                                        <img src="{{image.image.url}}" height="300px" class="card-img-top"
+                                            alt="noimage" />
+                                        <div class="card-body">
+                                            <a href="{% url 'blog_image_delete' pk=blog.id blog_image_id=image.id %}"
+                                                class="btn btn-outline-danger">
+                                                <span><i class="fas fa-trash-alt" aria-hidden="true"></i></span> Delete
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </td>
+                    </tr>
+                    {{blog_image_form.as_table}}
+                </table>
+
+                <button type="submit" class="btn btn-primary w-25 mb-3">Update</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "Home/base.html" %}
+{% block content %}
+<div class="container-fluid">
+    <h2 class="mb-3 sticky-top bg-white p-3 shadow-sm">Post A Complaint</h2>
+    <div class="row">
+        <div class="col">
+            <form method="post" action="{% url 'complaint_update' complaint.id %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table class="table table-striped">
+                    {{complaint_form.as_table}} {{complaint_location_form.as_table}}
+                    <tr>
+                        <td>Images</td>
+                        <td>
+                            <div class="row">
+                                {% for image in complaint_images %}
+                                <div class="col-lg-4 mb-3">
+                                    <div class="card" style="width: 18rem">
+                                        <img src="{{image.file.url}}" height="300px" class="card-img-top"
+                                            alt="noimage" />
+                                        <div class="card-body">
+                                            <a href="{% url 'complaint_image_delete' image.id %}"
+                                                class="btn btn-outline-danger">
+                                                <span><i class="fas fa-trash-alt" aria-hidden="true"></i></span> Delete
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </td>
+                    </tr>
+                    {{complaint_image_form.as_table}}
+                </table>
+
+                <button type="submit" class="btn btn-primary w-25 mb-3">Update</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
