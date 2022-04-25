@@ -1,0 +1,49 @@
+{% extends 'Home/base.html' %}
+{% block content %}
+<div class="container">
+    <h2>Jobs</h2>
+    <a href="{% url 'DashBoard:addJobOffer' %}">
+        <button type="button" class="btn btn-primary">Add Job</button>
+    </a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Company name</th>
+                <th>Location</th>
+                <th>Eligibilities</th>
+                <th>Lastdate</th>
+                <th>Reference</th>
+                <th>Apply url</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for job in jobs %}
+            <tr>
+                <td>{{ job.id }}</td>
+                <td>{{ job.name }}</td>
+                <td>{{ job.companyname }}</td>
+                <td>{{ job.location }}</td>
+                <td>{{ job.eligibilities }}</td>
+                <td>{{ job.lastdate }}</td>
+                <td>{{ job.reference }}</td>
+                <td>{{ job.applyurl }}</td>
+                <td>
+                    <a href="{% url 'DashBoard:editJobOffer' job.id %}">
+                        <button type="button" class="btn btn-primary">Edit</button>
+                    </a>
+                    <a href="{% url 'DashBoard:deleteJobOffer' job.id %}">
+                        <button type="button" class="btn btn-danger">Delete</button>
+                    </a>
+                </td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+</div>
+{% endblock %}

@@ -23,7 +23,13 @@
     <main class="d-flex">
         <aside>
 
+            {% if user.is_authenticated and request.path != '/'%}
+
             {% include 'Home/includes/sidebar.html' %}
+
+            {% else %}
+
+            {% endif %}
 
         </aside>
 

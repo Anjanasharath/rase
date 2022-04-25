@@ -18,6 +18,8 @@ urlpatterns = [
     path('events/', EventsView.as_view(), name='events'),
 
     path('jobs/', AllJobOfferView.as_view(), name='allJobs'),
+    path('job/', JobOfferView.as_view(), name='jobOffer'),
     path('job/add/', AddJobOfferView.as_view(), name='addJobOffer'),
     path('job/<int:pk>/edit', EditJobOfferView.as_view(), name='editJobOffer'),
+    path('job/<int:pk>/delete', DeleteJobView.as_view(), name='deleteJobOffer'),
 ]
