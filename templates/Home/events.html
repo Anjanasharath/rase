@@ -1,0 +1,28 @@
+{% extends "Home/base.html" %}
+
+{% block content %}
+<div class="container h-100">
+    <div class="row align-items-center justify-content-center h-100">
+        <div class="col-lg-5">
+            <h2 class="mb-3">Events</h2>
+            <hr />
+            {% if events %}
+            {% for event in events %}
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">{{ event.name }}</h5>
+                    <p class="card-text">{{ event.description }}</p>
+                    <p class="card-text">Date: {{ event.date }}</p>
+                    <p class="card-text">Time: {{ event.time }}</p>
+                    <p class="card-text">Location: {{ event.location }}</p>
+                </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <p>No events found.</p>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+{% endblock %}

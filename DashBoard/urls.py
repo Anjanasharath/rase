@@ -1,6 +1,5 @@
 from django.urls import path
 from .views import *
-
 app_name = 'DashBoard'
 
 urlpatterns = [
@@ -16,4 +15,5 @@ urlpatterns = [
     path('search/', Search.as_view(), name='search'),
 
     path('dashboard/', DashBoardView.as_view(), name='dashboard'),
+    path('events/', EventsView.as_view(), name='events'),
 ]

@@ -1,0 +1,40 @@
+{% extends 'Admin/base.html' %}
+{% block content %}
+<div class="container">
+    <h2>{{ header}}</h2>
+    <a href="{% url 'Admin:addEvent' %}">
+        <button type="button" class="btn btn-primary">Add Event</button>
+    </a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Date</th>
+                <th>time</th>
+                <th>Location</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for event in events %}
+            <tr>
+                <td>{{ event.id }}</td>
+                <td>{{ event.name }}</td>
+                <td>{{ event.description }}</td>
+                <td>{{ event.date }}</td>
+                <td>{{ event.time }}</td>
+                <td>{{ event.location }}</td>
+                <td>
+                    <a href="{% url 'Admin:editEvent' event.id %}" class="btn btn-primary">Edit</a>
+                    <a href="#" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+</div>
+{% endblock %}
