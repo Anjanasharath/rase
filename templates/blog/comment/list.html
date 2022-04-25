@@ -9,7 +9,7 @@
                 <h2 class="px-3">Complaints</h2>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
-                        <a href="{% url 'complaint_create' %}" class="btn btn-primary">Post a complaint</a>
+                        <a href="{% url 'Blog:complaint_create' %}" class="btn btn-primary">Post a complaint</a>
                     </li>
                 </ul>
             </div>
@@ -39,9 +39,9 @@
                         <td>{{complaint.status | title}}</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic example">
-                                <a href="{% url 'complaint_detail' complaint.id %}" class="btn text-primary"><i class="fas fa-eye"></i></a>
-                                <a href="{% url 'complaint_update' complaint.id %}" class="btn text-success"><i class="fas fa-pencil-alt"></i></a>
-                                <a href="{% url 'complaint_delete' complaint.id %}" class="btn text-danger"><i class="fas fa-trash-alt"></i></a>
+                                <a href="{% url 'Blog:complaint_detail' complaint.id %}" class="btn text-primary"><i class="fas fa-eye"></i></a>
+                                <a href="{% url 'Blog:complaint_update' complaint.id %}" class="btn text-success"><i class="fas fa-pencil-alt"></i></a>
+                                <a href="{% url 'Blog:complaint_delete' complaint.id %}" class="btn text-danger"><i class="fas fa-trash-alt"></i></a>
                             </div>
                         </td>
                     </tr>

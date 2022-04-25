@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col">
 
-            <form method="post" action="{% url 'complaint_create' %}" enctype="multipart/form-data">
+            <form method="post" action="{% url 'Blog:complaint_create' %}" enctype="multipart/form-data">
                 {% csrf_token %}
                 <table class="table table-striped">
                     {{complaint_form.as_table}}

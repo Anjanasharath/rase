@@ -15,7 +15,7 @@
           <p class="m-0 me-3">Posted by: {{complaint.user}}</p>
           <p class="m-0 me-3">Created On: {{complaint.created_on}}</p>
           <p class="m-0 ">Last Updated On: {{complaint.updated_on}}</p>
-          <a href="{% url 'complaint_update' complaint.id %}" class="btn btn-success ms-auto">Edit</a>
+          <a href="{% url 'Blog:complaint_update' complaint.id %}" class="btn btn-success ms-auto">Edit</a>
         </div>
         <hr />
       </div>

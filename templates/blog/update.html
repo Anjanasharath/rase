@@ -18,7 +18,7 @@
                                         <img src="{{image.image.url}}" height="300px" class="card-img-top"
                                             alt="noimage" />
                                         <div class="card-body">
-                                            <a href="{% url 'blog_image_delete' pk=blog.id blog_image_id=image.id %}"
+                                            <a href="{% url 'Blog:blog_image_delete' pk=blog.id blog_image_id=image.id %}"
                                                 class="btn btn-outline-danger">
                                                 <span><i class="fas fa-trash-alt" aria-hidden="true"></i></span> Delete
                                             </a>

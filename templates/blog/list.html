@@ -9,7 +9,7 @@
                 <h2 class="px-3">Blogs</h2>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
-                        <a href="{% url 'blog_create' %}" class="btn btn-primary">Post a blog</a>
+                        <a href="{% url 'Blog:blog_create' %}" class="btn btn-primary">Post a blog</a>
                     </li>
                 </ul>
             </div>
@@ -37,11 +37,11 @@
                         <td>{{blog.created_on}}</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic example">
-                                <a href="{% url 'blog_detail' blog.id %}" class="btn text-primary"><i
+                                <a href="{% url 'Blog:blog_detail' blog.id %}" class="btn text-primary"><i
                                         class="fas fa-eye"></i></a>
-                                <a href="{% url 'blog_update' blog.id %}" class="btn text-success"><i
+                                <a href="{% url 'Blog:blog_update' blog.id %}" class="btn text-success"><i
                                         class="fas fa-pencil-alt"></i></a>
-                                <a href="{% url 'blog_delete' blog.id %}" class="btn text-danger"><i
+                                <a href="{% url 'Blog:blog_delete' blog.id %}" class="btn text-danger"><i
                                         class="fas fa-trash-alt"></i></a>
                             </div>
                         </td>

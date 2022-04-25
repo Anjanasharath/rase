@@ -33,7 +33,7 @@ class BlogCreateView(View):
         else:
             return self.form_invalid(blog_form,  blog_image_form)
 
-        return redirect(reverse_lazy("blog_list"))
+        return redirect(reverse_lazy("Blog:blog_list"))
 
     def get_context_data(self, **kwargs):
         context = {
@@ -130,7 +130,7 @@ class BlogUpdateView(View):
 class BlogDeleteView(DeleteView):
     model = Blog
     template_name = "blog/delete.html"
-    success_url = reverse_lazy("blog_list")
+    success_url = reverse_lazy("Blog:blog_list")
 
 
 # Blog Comment
@@ -147,7 +147,7 @@ class BlogCommentListView(ListView):
 class BlogCommentCreateView(CreateView):
     model = BlogComment
     template_name = "blog/comment/create.html"
-    success_url = reverse_lazy("blog_comment_list")
+    success_url = reverse_lazy("Blog:blog_comment_list")
 
 
 class BlogCommentDetailView(DetailView):
@@ -160,13 +160,13 @@ class BlogCommentUpdateView(UpdateView):
     template_name = "blog/comment/update.html"
 
     def get_success_url(self) -> str:
-        return reverse_lazy('blog_comment_detail', kwargs={'pk': self.kwargs['pk']})
+        return reverse_lazy('Blog:blog_comment_detail', kwargs={'pk': self.kwargs['pk']})
 
 
 class BlogCommentDeleteView(DeleteView):
     model = BlogComment
     template_name = "blog/comment/delete.html"
-    success_url = reverse_lazy("blog_comment_list")
+    success_url = reverse_lazy("Blog:blog_comment_list")
 
 
 # Blog Image
@@ -179,7 +179,7 @@ class BlogImageDeleteView(View):
     def post(self, request, pk, blog_image_id):
         self.object = self.get_object(blog_image_id)
         self.object.delete()
-        return redirect(reverse_lazy('blog_update', kwargs={'pk': pk}))
+        return redirect(reverse_lazy('Blog:blog_update', kwargs={'pk': pk}))
 
     def get_object(self, blog_image_id):
         object = BlogImage.objects.get(id=blog_image_id)
