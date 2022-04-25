@@ -1,8 +1,9 @@
-from operator import imod
+from django.contrib import messages 
 from django.shortcuts import render, redirect
 from django.views import View
 from ..forms import JobOfferForm
 from ..models import JobOffer
+
 
 class AddJobOfferView(View):
     def get(self, request):
@@ -13,11 +14,14 @@ class AddJobOfferView(View):
 
     def post(self, request):
         if request.user.is_authenticated:
-            form = JobOfferForm(request.POST)
+            data = request.POST.copy()
+            data['postedby'] = request.user.id
+            form = JobOfferForm(data)
             if form.is_valid():
                 form.save()
-                return redirect('DashBoard:AllJobOffers')
-            return render(request, 'DashBoard/job/add.html', {'form': form})
+                return redirect('DashBoard:allJobs')
+            messages.error(request, form.errors)
+            return render(request, 'DashBoard/job/add.html', {'form': form, 'errors': form.errors})
         return redirect('/login/')
 
 
