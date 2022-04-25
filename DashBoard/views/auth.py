@@ -53,7 +53,7 @@ class RegisterView(View):
         else:
             for msg in form.error_messages:
                 messages.warning(request, f"{msg}: {form.error_messages[msg]}")
-            return render(request, 'Home/signup.html', {'form': form})
+            return render(request, self.template_name, {'form': form})
     
 
 class PasswordChangeView(View):
