@@ -28,8 +28,7 @@
                 <td>{{ event.location }}</td>
                 <td>
                     <a href="{% url 'Admin:editEvent' event.id %}" class="btn btn-primary">Edit</a>
-                    <a data-confirm="Are you sure?" data-method="delete" class="btn btn-danger"
-                        href="{% url 'Admin:editEvent' event.id %}" rel="nofollow">Delete</a>
+                    <a href="{% url 'Admin:deleteEvent' event.id %}" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
             {% endfor %}

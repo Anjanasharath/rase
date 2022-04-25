@@ -48,8 +48,8 @@ class EditEventView(View):
             form.save()
         return redirect('Admin:events')
 
-    def delete(self, request, pk):
+class DeleteEventView(View):
+    def get(self, request, pk):
         event = Event.objects.get(pk=pk)
         event.delete()
         return redirect('Admin:events')
-
