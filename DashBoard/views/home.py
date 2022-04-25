@@ -5,10 +5,6 @@ from Admin.models import Event
 # Create your views here.
 class HomeIndexView(View):
     def get(self, request):
-        if request.user.is_authenticated:
-            if request.user.is_staff:
-                return redirect('/admin')
-            return redirect('DashBoard:dashboard')
         return render(request, 'Home/home.html')
 
 

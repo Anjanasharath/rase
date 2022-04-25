@@ -28,7 +28,7 @@ class AddEventView(View):
         form = EventForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('Admin:Events')
+            return redirect('Admin:events')
         return render(request, 'Admin/events/create.html', {'form': form})
 
 class EditEventView(View):
@@ -46,10 +46,10 @@ class EditEventView(View):
         form = EventForm(request.POST, instance=event)
         if form.is_valid():
             form.save()
-        return render(request, 'Admin/edit.html', {'form': form})
+        return redirect('Admin:events')
 
     def delete(self, request, pk):
         event = Event.objects.get(pk=pk)
         event.delete()
-        return render(request, 'Admin/events/events.html')
+        return redirect('Admin:events')
 
