@@ -16,3 +16,26 @@ class JobOffer(models.Model):
 
     def __str__(self):
         return self.title
+
+class Student(models.Model):
+    fullname = models.CharField(max_length=100)
+    address = models.TextField()
+    course = models.CharField(max_length=100)
+    dob = models.DateField()
+    courseDuration = models.IntegerField()
+    tenthPercentage = models.IntegerField()
+    twelthPercentage = models.IntegerField()
+    contactNo = models.CharField(max_length=13)
+    user = models.OneToOneField('auth.User', on_delete=models.CASCADE)
+
+
+class Alumni(models.Model):
+    fullname = models.CharField(max_length=100)
+    address = models.TextField()
+    dob = models.DateField()
+    courseDeatils = models.CharField(max_length=100)
+    yearOfPassing = models.IntegerField()
+    yearOfJoining = models.IntegerField()
+    jobStatus = models.CharField(max_length=100)
+    contactNo = models.CharField(max_length=13)
+    user = models.OneToOneField('auth.User', on_delete=models.CASCADE)

@@ -2,8 +2,10 @@
     <ul class="list-group list-group-flush w-100">
         <li class="list-group-item"><a class="nav-link" href="{% url 'DashBoard:dashboard'%}">Dashboard</a></li>
         <li class="list-group-item"><a class="nav-link" href="{% url 'DashBoard:jobOffer'%}">Job Offers</a></li>
-        <li class="list-group-item"><a class="nav-link" href="{% url 'Blog:blog_list' %}">Blog</a></li>
+        <!-- <li class="list-group-item"><a class="nav-link" href="{% url 'Blog:blog_list' %}">Blog</a></li> -->
         <li class="list-group-item"><a class="nav-link" href="{% url 'DashBoard:dashboard' %}">college</a></li>
-        <li class="list-group-item"><a class="nav-link" href="{% url 'DashBoard:dashboard'%}">Profile</a></li>
+        <li class="list-group-item"><a class="nav-link" href="{% url 'DashBoard:studentProfile'%}">Student Profile</a>
+        <li class="list-group-item"><a class="nav-link" href="{% url 'DashBoard:alumniProfile'%}">Alumni Profile</a>
+        </li>
     </ul>
 </div>

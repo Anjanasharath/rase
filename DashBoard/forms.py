@@ -1,7 +1,8 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import JobOffer
+from .models import *
 from django import forms
+
 
 class SignUpForm(UserCreationForm):
     class Meta:
@@ -18,4 +19,16 @@ class SignUpForm(UserCreationForm):
 class JobOfferForm(forms.ModelForm):
     class Meta:
         model = JobOffer
+        fields = '__all__'
+
+
+class StudentForm(forms.ModelForm):
+    class Meta:
+        model = Student
+        fields = '__all__'
+
+
+class AlumniForm(forms.ModelForm):
+    class Meta:
+        model = Alumni
         fields = '__all__'

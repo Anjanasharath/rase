@@ -1,0 +1,38 @@
+{% extends 'Admin/base.html' %}
+{% block content %}
+<div class="container">
+    <h2>Students</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Full Name</th>
+                <th>Address</th>
+                <th>Date of Birth</th>
+                <th>Course</th>
+                <th>Course Duration</th>
+                <th>Tenth Percentage</th>
+                <th>Twelth Percentage</th>
+                <th>Contact no</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <th>{{student.id}}</th>
+                <td>{{student.fullname}}</td>
+                <td>{{student.address}}</td>
+                <td>{{student.dob}}</td>
+                <td>{{student.course}}</td>
+                <td>{{student.courseDuration}}</td>
+                <td>{{student.tenthPercentage}}</td>
+                <td>{{student.twelthPercentage}}</td>
+                <td>{{student.contactNo}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+</div>
+{% endblock %}

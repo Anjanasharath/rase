@@ -1,0 +1,38 @@
+{% extends 'Admin/base.html' %}
+{% block content %}
+<div class="container">
+    <h2>alumnis</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Full Name</th>
+                <th>Address</th>
+                <th>Date of Birth</th>
+                <th>Course Deatils</th>
+                <th>Year Of Passing</th>
+                <th>Year Of Joining</th>
+                <th>Job Status</th>
+                <th>Contact No</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for alumni in alumnis %}
+            <tr>
+                <th>{{alumni.id}}</th>
+                <td>{{alumni.fullname}}</td>
+                <td>{{alumni.address}}</td>
+                <td>{{alumni.dob}}</td>
+                <td>{{alumni.courseDeatils}}</td>
+                <td>{{alumni.yearOfPassing}}</td>
+                <td>{{alumni.yearOfJoining}}</td>
+                <td>{{alumni.jobStatus}}</td>
+                <td>{{alumni.contactNo}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+</div>
+{% endblock %}
