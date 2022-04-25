@@ -7,7 +7,6 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav w-100">
-                {% if not user.is_authenticated %}
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{% url 'DashBoard:home' %}">Home</a>
                 </li>
@@ -32,7 +31,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'DashBoard:register' %}">Register</a>
                 </li>
-                {% else %}
+                {% if user.is_authenticated %}
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{% url 'DashBoard:dashboard' %}">Dashboard</a>
                 </li>
