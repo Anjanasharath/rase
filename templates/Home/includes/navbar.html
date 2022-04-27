@@ -45,12 +45,16 @@
             </a>
             {% else %}
             <div class="d-flex align-items-center">
-                <button type="button" class="btn btn-link px-3 me-2">
-                    Login
-                </button>
-                <button type="button" class="btn btn-primary me-3">
-                    Sign up for free
-                </button>
+                <a href="{% url 'DashBoard:login' %}">
+                    <button type="button" class="btn btn-link px-3 me-2">
+                        Login
+                    </button>
+                </a>
+                <a href="{% url 'DashBoard:register' %}">
+                    <button type="button" class="btn btn-primary me-3">
+                        Sign up
+                    </button>
+                </a>
             </div>
             {% endif %}
         </div>
