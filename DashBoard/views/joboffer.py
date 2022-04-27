@@ -32,7 +32,10 @@ class AllJobOfferView(View):
 
 class JobOfferView(View):
     def get(self, request):
-        jobs = JobOffer.objects.filter(postedby=request.user.id)
+        if request.user.is_staff:
+            jobs = JobOffer.objects.all()
+        else:
+            jobs = JobOffer.objects.filter(postedby=request.user.id)
         return render(request, 'DashBoard/job/list.html', {'jobs': jobs})
 
 
