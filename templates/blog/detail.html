@@ -1,48 +1,42 @@
-{% extends "Home/base.html" %}
-
-<!--content-block-->
+{% extends 'Admin/base.html' %}
+{% block title %}Detailed Blog{% endblock %}
 {% block content %}
 
 <div class="container">
-  <div class="row">
-    <div class="col px-5 py-3">
-      <div class="d-flex flex-column justify-content-between bg-white sticky-top">
-        <h3 class="mb-3">
-          {{blog.id}}. {{blog.title}}
-          
-        </h3>
-        <div class="text-muted fst-italic d-flex align-items-center">
-          <p class="m-0 me-3">Posted by: {{blog.user}}</p>
-          <p class="m-0 me-3">Created On: {{blog.created_on}}</p>
-          <p class="m-0 ">Last Updated On: {{blog.updated_on}}</p>
-          <a href="{% url 'Blog:blog_update' blog.id %}" class="btn btn-success ms-auto">Edit</a>
-        </div>
-        <hr />
-      </div>
-      <h4 class="">Details</h4>
-      <p>{{blog.description}}</p>
-      <h4 class="">Images</h4>
-      <hr />
-      <div class="container-fluid">
-        <div class="row justify-content-between">
-          {% for image in blog_images %}
-          <div class="col-4 mb-3">
-            <div class="card">
-              <div class="card-body">
-                <img
-                  class="card-img-top"
-                  height="300px"
-                  width="auto"
-                  src="{{image.image.url}}"
-                  alt="NoImage"
-                />
-              </div>
+    <div class="row">
+        <div class="col px-5 py-3">
+            <div class="d-flex flex-column justify-content-between bg-white sticky-top">
+                <h3 class="mb-3">
+                    {{blog.id}}. {{blog.title}}
+
+                </h3>
+                <div class="text-muted fst-italic d-flex align-items-center">
+                    <p class="m-0 me-3">Posted by: {{blog.user}}</p>
+                    <p class="m-0 me-3">Created On: {{blog.created_on}}</p>
+                    <p class="m-0 ">Last Updated On: {{blog.updated_on}}</p>
+                    <a href="{% url 'Blog:blog_update' blog.id %}" class="btn btn-success ms-auto">Edit</a>
+                </div>
+                <hr />
             </div>
-          </div>
-          {% endfor %}
+            <h4 class="">Details</h4>
+            <p>{{blog.description}}</p>
+            <h4 class="">Images</h4>
+            <hr />
+            <div class="container-fluid">
+                <div class="row justify-content-between">
+                    {% for image in blog_images %}
+                    <div class="col-4 mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <img class="card-img-top" height="300px" width="auto" src="{{image.image.url}}"
+                                    alt="NoImage" />
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
 {% endblock %}

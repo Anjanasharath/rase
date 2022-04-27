@@ -1,48 +1,41 @@
-{% extends "Home/base.html" %}
-
-<!--content-block-->
+{% extends 'Admin/base.html' %}
+{% block title %}detailed comment{% endblock %}
 {% block content %}
-
 <div class="container">
-  <div class="row">
-    <div class="col px-5 py-3">
-      <div class="d-flex flex-column justify-content-between bg-white sticky-top">
-        <h3 class="mb-3">
-          {{complaint.id}}. {{complaint.title}}
-          <span class="badge bg-warning"> {{complaint.status | title}} </span>
-        </h3>
-        <div class="text-muted fst-italic d-flex align-items-center">
-          <p class="m-0 me-3">Posted by: {{complaint.user}}</p>
-          <p class="m-0 me-3">Created On: {{complaint.created_on}}</p>
-          <p class="m-0 ">Last Updated On: {{complaint.updated_on}}</p>
-          <a href="{% url 'Blog:complaint_update' complaint.id %}" class="btn btn-success ms-auto">Edit</a>
-        </div>
-        <hr />
-      </div>
-      <h4 class="">Details</h4>
-      <p>{{complaint.description}}</p>
-      <h4 class="">Images</h4>
-      <hr />
-      <div class="container-fluid">
-        <div class="row justify-content-between">
-          {% for image in complaint_images %}
-          <div class="col-4 mb-3">
-            <div class="card">
-              <div class="card-body">
-                <img
-                  class="card-img-top"
-                  height="300px"
-                  width="auto"
-                  src="{{image.file.url}}"
-                  alt="NoImage"
-                />
-              </div>
+    <div class="row">
+        <div class="col px-5 py-3">
+            <div class="d-flex flex-column justify-content-between bg-white sticky-top">
+                <h3 class="mb-3">
+                    {{complaint.id}}. {{complaint.title}}
+                    <span class="badge bg-warning"> {{complaint.status | title}} </span>
+                </h3>
+                <div class="text-muted fst-italic d-flex align-items-center">
+                    <p class="m-0 me-3">Posted by: {{complaint.user}}</p>
+                    <p class="m-0 me-3">Created On: {{complaint.created_on}}</p>
+                    <p class="m-0 ">Last Updated On: {{complaint.updated_on}}</p>
+                    <a href="{% url 'Blog:complaint_update' complaint.id %}" class="btn btn-success ms-auto">Edit</a>
+                </div>
+                <hr />
             </div>
-          </div>
-          {% endfor %}
+            <h4 class="">Details</h4>
+            <p>{{complaint.description}}</p>
+            <h4 class="">Images</h4>
+            <hr />
+            <div class="container-fluid">
+                <div class="row justify-content-between">
+                    {% for image in complaint_images %}
+                    <div class="col-4 mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <img class="card-img-top" height="300px" width="auto" src="{{image.file.url}}"
+                                    alt="NoImage" />
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
 {% endblock %}

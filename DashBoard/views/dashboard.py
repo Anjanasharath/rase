@@ -3,4 +3,4 @@ from django.views.generic import View, TemplateView
 
 
 class DashBoardView(TemplateView):
-    template_name = 'DashBoard/dashboard.html'
+    template_name = 'Admin/index.html'

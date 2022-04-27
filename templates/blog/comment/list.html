@@ -1,6 +1,5 @@
-{% extends "Home/base.html" %}
-
-<!--content-block-->
+{% extends 'Admin/base.html' %}
+{% block title %}Comments{% endblock %}
 {% block content %}
 <div class="container">
     <div class="row justify-content-center align-content-center">
@@ -39,9 +38,12 @@
                         <td>{{complaint.status | title}}</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic example">
-                                <a href="{% url 'Blog:complaint_detail' complaint.id %}" class="btn text-primary"><i class="fas fa-eye"></i></a>
-                                <a href="{% url 'Blog:complaint_update' complaint.id %}" class="btn text-success"><i class="fas fa-pencil-alt"></i></a>
-                                <a href="{% url 'Blog:complaint_delete' complaint.id %}" class="btn text-danger"><i class="fas fa-trash-alt"></i></a>
+                                <a href="{% url 'Blog:complaint_detail' complaint.id %}" class="btn text-primary"><i
+                                        class="fas fa-eye"></i></a>
+                                <a href="{% url 'Blog:complaint_update' complaint.id %}" class="btn text-success"><i
+                                        class="fas fa-pencil-alt"></i></a>
+                                <a href="{% url 'Blog:complaint_delete' complaint.id %}" class="btn text-danger"><i
+                                        class="fas fa-trash-alt"></i></a>
                             </div>
                         </td>
                     </tr>

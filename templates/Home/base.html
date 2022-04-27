@@ -20,20 +20,6 @@
 <body>
     <header class="fixed-top">{% include 'Home/includes/navbar.html' %}</header>
     <main class="" style="margin-top: 60px;">
-        <aside>
-
-            {% if user.is_authenticated and request.path != '/'%}
-
-            {% include 'Home/includes/sidebar.html' %}
-
-
-
-            {% else %}
-
-            {% endif %}
-
-        </aside>
-
         <section class="main">
             <!--content-block-->
             {% block content %}{% endblock %}
