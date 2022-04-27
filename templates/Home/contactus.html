@@ -1,76 +1,124 @@
 {% extends 'Home/base.html' %}
 {% load static %}
-
+{% block title %} Contact Us {% endblock %}
 <!--content-block-->
 {% block content %}
-<div class="container">
 
-    <h1>contact us</h1>
-    <main>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col p-0">
-                    <img src="{% static 'co1.jpg' %}" alt="" class="img" style="width: 80%;">
-
+<div class="container" style="margin-top: 50px;">
+    <section class="section padding-top-70 padding-bottom-0" id="features">
+        <div class="container">
+            <center>
+                <h1>Contact Us</h1>
+            </center>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col p-0">
+                        <center>
+                            <img src="{% static 'co1.jpg' %}" alt="" class="img" style="width: 80%;">
+                        </center>
+                    </div>
                 </div>
             </div>
+
+            <div class="d-flex align-items-center justify-content-center" style="height: 100px;">
+                <h1 class="display-6"><strong>Contact Info</strong></h1>
+            </div>
+            <!-- Footer -->
+            <footer class="text-center text-lg-start bg-light text-muted">
+                <!-- Section: Social media -->
+                <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+                    <!-- Left -->
+                    <div class="me-5 d-none d-lg-block">
+                        <span>Get connected with us on social networks:</span>
+                    </div>
+                    <!-- Left -->
+
+                    <!-- Right -->
+                    <div>
+                        <a href="" class="me-4 text-reset">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="" class="me-4 text-reset">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="" class="me-4 text-reset">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="" class="me-4 text-reset">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="" class="me-4 text-reset">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="" class="me-4 text-reset">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                    <!-- Right -->
+                </section>
+                <!-- Section: Social media -->
+
+                <!-- Section: Links  -->
+                <section class="">
+                    <div class="container text-center text-md-start mt-5">
+                        <!-- Grid row -->
+                        <div class="row mt-3">
+                            <!-- Grid column -->
+                            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                                <!-- Links -->
+                                <h6 class="text-uppercase fw-bold mb-4">
+                                    General enquiry
+                                </h6>
+                                <p>
+                                    Phone: <a href="tel:+91-000-4082000">+91-000-4082000</a>
+                                </p>
+                                <p>
+                                    Email: <a href="mailto:abc@Xyz.net.in"> abc@Xyz.net.in</a>
+                                </p>
+                            </div>
+                            <!-- Grid column -->
+
+                            <!-- Grid column -->
+                            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                                <!-- Links -->
+                                <h6 class="text-uppercase fw-bold mb-4">
+                                    Consultancy service
+                                </h6>
+                                <p>
+                                    Email: <a href="mailto:enquiry@abc.net.in"> enquiry@abc.net.in</a>
+                                </p>
+                                <p>
+                                    Phone: <a href="tel:+91-000-1000000">+91-000-1000000</a>
+                                </p>
+                            </div>
+                            <!-- Grid column -->
+
+                            <!-- Grid column -->
+                            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                                <!-- Links -->
+                                <h6 class="text-uppercase fw-bold mb-4">
+                                    Contact
+                                </h6>
+                                <p><i class="fas fa-home me-3"></i> Velloor PO, Pampady, Kottayam - 686501, Kerala ,
+                                    india.</p>
+                                <p>
+                                    <i class="fas fa-envelope me-3"></i>
+                                    <a href="mailto:info@abc.net.in">info@abc.net.in</a>
+                                </p>
+                                <p><i class="fas fa-phone me-3"></i><a href="tel:+91-000-4082000">+91-000-4082000</a>
+                                </p>
+                            </div>
+                            <!-- Grid column -->
+                        </div>
+                        <!-- Grid row -->
+                    </div>
+                </section>
+                <!-- Section: Links  -->
+
+            </footer>
+            <!-- Footer -->
         </div>
-
-        <!-- <h1 style="text-align: center; background-color:bisque ;">Contact us...</h1> -->
-
-        <div>
-            <table style="width: 80%;text-align: left; background-color: bisque;">
-
-                <tr>
-                    <th>Address for communication</th>
-                    <th>General enquiry</th>
-
-                </tr>
-                <tr>
-                    <td>Address: Velloor PO,
-                        Pampady,
-                        Kottayam - 686501, Kerala , india.</td>
-                    <td>Phone: +91-000-4082000</td>
-                </tr>
-
-                <tr>
-                    <td>Phone: +91-000-1081000</td>
-                    <td>Email:<a href="">abc@Xyz.net.in</a></td>
-                </tr>
-                <tr>
-                    <td>Fax: +91-000-100000</td>
-                    <td>Email:<a href="">abc@Xyz.net.in</a></td>
-                </tr>
-
-                <tr>
-                    <td><br></td>
-                </tr>
-                <tr>
-                    <td><br></td>
-                </tr>
-                <tr>
-                    <td><br></td>
-                </tr>
-                <tr>
-                    <td></td>
-                </tr>
-                <th>website</th>
-
-                <th>Consultancy service</th>
-                </tr>
-                <tr>
-                    <td>Phone: +91-000-1001000</td>
-                    <td>Email:<a href="">enquiry@abc.net.in</a> </td>
-                </tr>
-                <tr>
-                    <td><a href="">les@abc.net.in</a></td>
-                    <td>Phone: +91-000-1000000</td>
-                </tr>
-
-
-            </table>
-
-        </div>
-
+    </section>
 </div>
+
 {% endblock %}
