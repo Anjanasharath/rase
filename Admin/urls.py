@@ -12,4 +12,7 @@ urlpatterns = [
 
     path('alumnis/', AlumniListView.as_view(), name='alumnis'),
     path('students/', StudentListView.as_view(), name='students'),
+
+    path('activate/<int:pk>/', ActivateAndDeactivateUserView.as_view(), name='activate_user'),
+
 ]
