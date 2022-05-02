@@ -25,4 +25,6 @@ urlpatterns = [
 
     path('profile/student', UpdateStudentProfile.as_view(), name='studentProfile'),
     path('profile/alumni', UpdateAlumniProfile.as_view(), name='alumniProfile'),
+
+    path('profile/', ProfileView.as_view(), name='profile')
 ]
