@@ -3,7 +3,7 @@ from django.views import View
 from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout, update_session_auth_hash
-from ..forms import SignUpForm
+from ..forms import SignUpForm, StudentForm, AlumniForm
 
 
 class LoginView(View):
@@ -37,23 +37,45 @@ class LogoutView(View):
 
 
 class RegisterView(View):
-    template_name = 'Home/register.html'
-
     def get(self, request):
-        form = SignUpForm()
-        return render(request, self.template_name, {'form': form})
+        try:
+            if request.GET['user'] == 'student':
+                form = SignUpForm()
+                profileform = StudentForm()
+                return render(request, 'Home/registerstudent.html', {'form': form, 'profileform': profileform})
+            elif request.GET['user'] == 'alumni':
+                form = SignUpForm()
+                profileform = AlumniForm()
+                return render(request, 'Home/registeralumni.html', {'form': form, 'profileform': profileform})
+        except KeyError:
+            return render(request, 'Home/register.html')
 
     def post(self, request):
         form = SignUpForm(request.POST)
         if form.is_valid():
             user = form.save()
-            login(request, user)
-            messages.success(request, "Registration successful.")
-            return redirect('/')
+            data = request.POST.copy()
+            data['user'] = user.id
+            if 'student' in request.build_absolute_uri():
+                profileform = StudentForm(data)
+                template = 'Home/registerstudent.html'
+            elif 'alumni' in request.build_absolute_uri():
+                profileform = AlumniForm(data)
+                template = 'Home/registeralumni.html'
+            print(profileform.is_valid(), user.id)
+            if profileform.is_valid():
+                profileform.save()
+                login(request, user)
+                messages.success(request, "Registration successful.")
+                return redirect('/')
+            else:
+                user.delete()
+                for msg in form.error_messages:
+                    messages.warning(request, f"{msg}: {form.error_messages[msg]}")
         else:
             for msg in form.error_messages:
                 messages.warning(request, f"{msg}: {form.error_messages[msg]}")
-            return render(request, self.template_name, {'form': form})
+        return render(request, template, {'form': form, 'profileform': profileform})
     
 
 class PasswordChangeView(View):

@@ -1,0 +1,38 @@
+{% extends "Home/base.html" %}
+{% block title %}Register{% endblock %}
+{% block content %}
+<div class="container h-100">
+    <div class="row align-items-center justify-content-center h-100">
+        <div class="col" style="margin-top: 20px;">
+            <h2 class="mb-3">Register</h2>
+            <hr />
+
+            {% if user.is_authenticated %}
+            <p>You are already registered</p>
+            {% else %}
+
+            <form method="post" action="{% url 'DashBoard:register' %}">
+                {% csrf_token %}
+                <table class="table table-borderless align-middle">
+                    {{form.as_table}}
+                </table>
+                {% if form.errors %}
+                <div class="alert alert-danger">
+                    <ul>
+                        {% for error in form.errors %}
+                        <li>{{error}}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+                <p><a class="link mb-3" href="{% url 'DashBoard:login' %}">Already have an account?</a></p>
+
+                <button type="submit" class="btn btn-primary w-25">Register</button>
+                <input type="hidden" name="next" value="{{ next }}">
+            </form>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+{% endblock %}

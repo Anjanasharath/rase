@@ -1,0 +1,151 @@
+{% extends "Home/base.html" %}
+{% block title %}Register{% endblock %}
+{% load static %}
+{% block styles %}
+<link href="{% static 'styles.css' %}" rel="stylesheet" />
+{% endblock %}
+{% block content %}
+<div class="container h-100">
+    <div class="row align-items-center justify-content-center h-100">
+        <div class="col" style="margin-top: 20px;">
+            <h2 class="mb-3">Register</h2>
+            <hr /> {% if user.is_authenticated %}
+            <p>You are already registered</p> {% else %}
+            <form method="POST">
+                {% csrf_token %}
+                <div class="container rounded bg-white mt-5 mb-5">
+                    <div class="row">
+                        <div class="col-md-3 border-right">
+                            <!-- <div class="avatar-wrapper">
+                            <img class="profile-pic" src="" />
+                            <div class="upload-button">
+                                <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+                            </div>
+                            <input class="file-upload" type="file" accept="image/*" />
+                        </div> -->
+                            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img
+                                    class="rounded-circle mt-5" width="150px"
+                                    src="{% static 'images/students.png' %}"><span class="font-weight-bold">Image</span>
+                                <span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-5 border-right">
+                            <div class="p-3 py-5">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h4 class="text-right">Profile Settings</h4>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-md-6">
+                                        <label for="fullname">Full Name</label>
+                                        <input type="text" class="form-control" id="fullname" name="fullname">
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-md-12">
+                                        <label for="address">Address</label>
+                                        <textarea class="form-control" id="address" name="address"></textarea>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label for="dob">Date of Birth</label>
+                                        <input type="date" class="form-control" id="dob" name="dob">
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label for="contactNo">Contact No</label>
+                                        <input type="tel" class="form-control" id="contactNo" name="contactNo">
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label for="courseDeatils">Course Details</label>
+                                        <input type="text" class="form-control" id="courseDeatils" name="courseDeatils">
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-md-6">
+                                            <label for="yearOfJoining">Year Of Joining</label>
+                                            <input type="number" class="form-control" id="yearOfJoining"
+                                                name="yearOfJoining">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="yearOfPassing">Year Of Passing</label>
+                                            <input type="number" class="form-control" id="yearOfPassing"
+                                                name="yearOfPassing">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label for="jobStatus">Job Status</label>
+                                        <input type="text" class="form-control" id="jobStatus" name="jobStatus">
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="p-3 py-5">
+                                <div class="d-flex justify-content-between align-items-center experience"><span
+                                        class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Login
+                                        Details</span> </div>
+                                <br>
+                                <div class="col-md-12">
+                                    <label class="labels">Username</label>
+                                    <input type="text" class="form-control" name="username">
+                                </div>
+                                <br>
+                                <div class="col-md-12">
+                                    <label class="labels"></label>Email</label>
+                                    <input type="text" class="form-control" name="email">
+                                </div>
+                                <br>
+                                <div class="col-md-12">
+                                    <label class="labels"></label>Password</label>
+                                    <input type="password" class="form-control" name="password1">
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="labels"></label>Password conformation</label>
+                                    <input type="password" class="form-control" name="password2">
+                                </div>
+                                <br>
+                                <div class="mt-5 text-center">
+                                    <button class="btn btn-primary profile-button" type="submit">Register</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}" role="alert">
+                        {{ message.message }}
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+            </form>
+            {% endif %}
+        </div>
+    </div>
+</div>
+<script>
+
+    $(document).ready(function () {
+
+        var readURL = function (input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('.profile-pic').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $(".file-upload").on('change', function () {
+            readURL(this);
+        });
+
+        $(".upload-button").on('click', function () {
+            $(".file-upload").click();
+        });
+    });
+</script>
+{% endblock %}

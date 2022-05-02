@@ -1,5 +1,6 @@
 {% extends "Home/base.html" %}
 {% block title %}Register{% endblock %}
+{% load static %}
 {% block content %}
 <div class="container h-100">
     <div class="row align-items-center justify-content-center h-100">
@@ -11,25 +12,40 @@
             <p>You are already registered</p>
             {% else %}
 
-            <form method="post" action="{% url 'DashBoard:register' %}">
-                {% csrf_token %}
-                <table class="table table-borderless align-middle">
-                    {{form.as_table}}
-                </table>
-                {% if form.errors %}
-                <div class="alert alert-danger">
-                    <ul>
-                        {% for error in form.errors %}
-                        <li>{{error}}</li>
-                        {% endfor %}
-                    </ul>
+            <center>
+                <div class="row row-cols-1 row-cols-md-4    justify-content-evenly"">
+                    <a href="?user=student">
+                    <div class="col">
+                        <div class="card">
+                            <img src="{% static 'images/students.png' %}" class="card-img-top"
+                                alt="Hollywood Sign on The Hill" style="width: 300px;" />
+                            <div class="card-body">
+                                <h5 class="card-title">Student</h5>
+                                <p class="card-text">
+                                    Register as Students
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    </a>
+                    <a href="?user=alumni">
+                        <div class="col">
+                            <div class="card">
+                                <img src="{% static 'images/alumni.png' %}" class="card-img-top" style="width: 300px;"
+                                    alt="Palm Springs Road" />
+                                <div class="card-body">
+                                    <h5 class="card-title">Alumni</h5>
+                                    <p class="card-text">
+                                        Register as Alumni
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-                {% endif %}
-                <p><a class="link mb-3" href="{% url 'DashBoard:login' %}">Already have an account?</a></p>
-
-                <button type="submit" class="btn btn-primary w-25">Register</button>
-                <input type="hidden" name="next" value="{{ next }}">
-            </form>
+            </center>
+            <br><br>
+            <p><a class="link mb-3" href="{% url 'DashBoard:login' %}">Already have an account?</a></p>
             {% endif %}
 
         </div>
