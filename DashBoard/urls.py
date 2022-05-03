@@ -15,7 +15,7 @@ urlpatterns = [
     path('search/', Search.as_view(), name='search'),
 
     path('dashboard/', DashBoardView.as_view(), name='dashboard'),
-    path('events/', EventsView.as_view(), name='events'),
+    path('events', EventsView.as_view(), name='events'),
 
     path('jobs/', AllJobOfferView.as_view(), name='allJobs'),
     path('job/', JobOfferView.as_view(), name='jobOffer'),

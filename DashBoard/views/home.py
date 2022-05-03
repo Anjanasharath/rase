@@ -22,5 +22,5 @@ class Search(TemplateView):
 
 class EventsView(View):
     def get(self, request):
-        events = Event.objects.all()
+        events = Event.objects.filter(type=request.GET['type'])
         return render(request, 'Home/events.html', {'events': events})

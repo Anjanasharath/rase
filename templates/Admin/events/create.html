@@ -23,6 +23,14 @@
                 <input type="time" class="form-control" id="time" name="time">
             </div>
             <div class="form-group">
+                <label for="type">Event Type</label>
+                <select class="form-control" id="type" name="type">
+                    <option value="Alumni meet">Alumni meet</option>
+                    <option value="Training">Training</option>
+                    <option value="Event">Event</option>
+                </select>
+            </div>
+            <div class="form-group">
                 <label for="location">Location</label>
                 <input type="text" class="form-control" id="location" name="location">
             </div>
@@ -30,5 +38,6 @@
         <br>
         <button type="submit" class="btn btn-primary">Save</button>
     </form>
+
 </div>
 {% endblock %}

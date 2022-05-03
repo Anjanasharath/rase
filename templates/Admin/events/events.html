@@ -13,7 +13,8 @@
                 <th>Name</th>
                 <th>Description</th>
                 <th>Date</th>
-                <th>time</th>
+                <th>Time</th>
+                <th>Type</th>
                 <th>Location</th>
                 <th>Action</th>
             </tr>
@@ -26,6 +27,7 @@
                 <td>{{ event.description }}</td>
                 <td>{{ event.date }}</td>
                 <td>{{ event.time }}</td>
+                <td>{{ event.type }}</td>
                 <td>{{ event.location }}</td>
                 <td>
                     <a href="{% url 'Admin:editEvent' event.id %}" class="btn btn-primary">Edit</a>

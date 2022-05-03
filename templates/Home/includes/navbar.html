@@ -24,8 +24,23 @@
                     <a class="nav-link" href="{% url 'DashBoard:dashboard' %}">Dashboard</a>
                 </li>
                 {% endif %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'DashBoard:events' %}">Events</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-mdb-toggle="dropdown" aria-expanded="false">
+                        Events
+                    </a>
+                    <!-- Dropdown menu -->
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li>
+                            <a class="dropdown-item" href="/events?type=Alumni meet">Alumni meet</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/events?type=Training">Training</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="events?type=Event">Event</a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'DashBoard:allJobs' %}">Job Offers</a>
