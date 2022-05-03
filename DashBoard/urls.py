@@ -29,6 +29,14 @@ urlpatterns = [
     path('gallery/<int:pk>/delete', DeleteGalleryView.as_view(), name='deleteGallery'),
     path('gallery/<int:pk>/edit', EditGalleryView.as_view(), name='editGallery'),
 
+    path('question/', ListQuestionView.as_view(), name='question'),
+    path('question/<int:pk>', QuestionView.as_view(), name='viewQuestion'),
+    path('question/add/', AddQuestionView.as_view(), name='addQuestion'),
+    path('question/<int:pk>/edit', EditQuestionView.as_view(), name='editQuestion'),
+    path('question/<int:pk>/delete', DeleteQuestionView.as_view(), name='deleteQuestion'),
+
+
+
     path('profile/student', UpdateStudentProfile.as_view(), name='studentProfile'),
     path('profile/alumni', UpdateAlumniProfile.as_view(), name='alumniProfile'),
 

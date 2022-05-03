@@ -1,0 +1,54 @@
+{% extends 'Admin/base.html' %}
+{% block title %} Questions{% endblock %}
+{% block content %}
+<div class="container">
+    <h2>Jobs</h2>
+    <a href="{% url 'DashBoard:addQuestion' %}">
+        <button type="button" class="btn btn-primary">Add Question</button>
+    </a>
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}" role="alert">
+        {{ message.message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Question</th>
+                <th>Asked by</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for question in questions %}
+            <tr>
+                <td>{{ question.id }}</td>
+                <td>{{ question.question }}</td>
+                <td>{% if question.user == request.user %}
+                    You
+                    {% else %}
+                    question.user
+                    {% endif %}
+                </td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <a href="{% url 'DashBoard:viewQuestion' question.id  %}" class="btn text-primary"><i
+                                class="fas fa-eye"></i></a>
+                        <a href="{% url 'DashBoard:editQuestion' question.id %}" class="btn text-success"><i
+                                class="fas fa-pencil-alt"></i></a>
+                        <a href="{% url 'DashBoard:deleteQuestion' question.id %}"" class=" btn text-danger"><i
+                                class="fas fa-trash-alt"></i></a>
+                    </div>
+                </td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+</div>
+{% endblock %}

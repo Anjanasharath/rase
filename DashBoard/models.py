@@ -46,3 +46,14 @@ class Gallery(models.Model):
     image = models.ImageField(upload_to='gallery/')
     user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
+
+
+class Question(models.Model):
+    question = models.TextField()
+    user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+
+
+class Reply(models.Model):
+    reply = models.TextField()
+    user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    question = models.ForeignKey(Question, on_delete=models.Case)

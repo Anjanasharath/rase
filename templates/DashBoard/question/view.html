@@ -1,0 +1,42 @@
+{% extends 'Admin/base.html' %}
+{% block title %}Question{% endblock %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+    <h2>Question</h2>
+    <div class="container rounded bg-white mt-5 mb-5" style="padding: 30px;">
+        <h5>Question : {{ question.question }} </h5>
+        <hr>
+        <h6>reply : </h6>
+        {% if replys %}
+        {% for reply in replys %}
+        <p>{{reply.user}}: {{reply.reply}}</p>
+        {% endfor %}
+        <br>
+        {% else %}
+        <p>no reply</p>
+        {% endif %}
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div style="width: 50%;">
+                <div class="col-md-12">
+                    <label for="reply">Reply</label>
+                    <textarea class="form-control" id="reply" name="reply"></textarea>
+                </div>
+                <input type="hidden" name="question" value="{{ question.id }}">
+                <br>
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}" role="alert">
+                    {{ message.message }}
+                </div>
+                {% endfor %}
+                {% endif %}
+                <button type="submit" class="btn btn-primary">Reply</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+{% endblock %}

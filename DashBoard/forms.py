@@ -38,3 +38,15 @@ class GalleryForm(forms.ModelForm):
     class Meta:
         model = Gallery
         fields = '__all__'
+
+
+class QuestionForm(forms.ModelForm):
+    class Meta:
+        model = Question
+        fields = '__all__'
+
+
+class ReplyForm(forms.ModelForm):
+    class Meta:
+        model = Reply
+        fields = '__all__'

@@ -50,6 +50,12 @@
                     <span class="links_name">Gallery</span>
                 </a>
             </li>
+            <li>
+                <a href="{% url 'DashBoard:question' %}">
+                    <i class='bx bx-question-mark'></i>
+                    <span class="links_name">Questions</span>
+                </a>
+            </li>
             {% if user.is_staff %}
             <li>
                 <a href="{% url 'Admin:events' %}">

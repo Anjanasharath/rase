@@ -19,4 +19,5 @@ class ActivateAndDeactivateUserView(View):
             user.is_active = True
             user.save()
             messages.success(request, f"User {user.username} has been activated.")
-        return redirect(request.META.get('HTTP_REFERER'))
+        return redirect()
+
