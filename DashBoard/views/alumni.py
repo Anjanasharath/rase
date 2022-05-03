@@ -15,7 +15,7 @@ class UpdateAlumniProfile(View):
         data = request.POST.copy()
         data['user'] = request.user.id
         alumni = Alumni.objects.get(user=request.user.id)
-        form = AlumniForm(data, instance=alumni))
+        form = AlumniForm(data, instance=alumni)
         if form.is_valid():
             form.save()
             messages.success(request, 'Alumni Profile Updated Successfully')
