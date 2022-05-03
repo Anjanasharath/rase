@@ -11,7 +11,7 @@ class DashBoardView(TemplateView):
 class ProfileView(View):
     def get(self, request):
         try:
-            student = Student.objects.get(user=request.user)
+            student = Student.objects.get(user=request.user.id)
             form = StudentForm(instance=student)
             template = 'DashBoard/student/edit.html'
         except:
