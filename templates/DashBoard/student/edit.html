@@ -1,5 +1,6 @@
 {% extends 'Admin/base.html' %}
 {% block title %}Edit Profile{% endblock %}
+{% load static %}
 {% block content %}
 
 <div class="container">
@@ -28,6 +29,13 @@
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <h4 class="text-right">Profile Settings</h4>
                         </div>
+                        {% if messages %}
+                        {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }}" role="alert">
+                            {{ message.message }}
+                        </div>
+                        {% endfor %}
+                        {% endif %}
                         <div class="row mt-2">
                             <div class="col-md-6">
                                 <label for="fullname">Full Name</label>
@@ -74,20 +82,12 @@
                                     value="{{ form.twelthPercentage.value }}" max="100">
                             </div>
                         </div>
-
                     </div>
                 </div>
                 <div class="mt-5 text-center">
                     <button class="btn btn-primary profile-button" type="submit">Save</button>
                 </div>
             </div>
-            {% if messages %}
-            {% for message in messages %}
-            <div class="alert alert-{{ message.tags }}" role="alert">
-                {{ message.message }}
-            </div>
-            {% endfor %}
-            {% endif %}
         </div>
     </form>
 

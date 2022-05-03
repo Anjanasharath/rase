@@ -7,24 +7,19 @@ from ..models import Alumni
 
 class UpdateAlumniProfile(View):
     def get(self, request):
-        try:
-            alumni = Alumni.objects.get(user=request.user.id)
-            form = AlumniForm(instance=alumni)
-            return render(request, 'DashBoard/alumni/edit.html', {'form': form})
-        except Alumni.DoesNotExist:
-            form = AlumniForm()
-            return render(request, 'DashBoard/alumni/add.html', {'form': form})
+        alumni = Alumni.objects.get(user=request.user.id)
+        form = AlumniForm(instance=alumni)
+        return render(request, 'DashBoard/alumni/edit.html', {'form': form})
 
     def post(self, request):
         data = request.POST.copy()
         data['user'] = request.user.id
-        try:
-            alumni = Alumni.objects.get(user=request.user.id)
-            form = AlumniForm(data, instance=alumni)
-        except Alumni.DoesNotExist:
-            form = AlumniForm(data)
+        alumni = Alumni.objects.get(user=request.user.id)
+        form = AlumniForm(data, instance=alumni))
         if form.is_valid():
             form.save()
             messages.success(request, 'Alumni Profile Updated Successfully')
             return redirect('DashBoard:alumniProfile')
-        return render(request, 'DashBoard/alumni/add.html', {'form': form, 'errors': form.errors})
+        else:
+            messages.error(request, 'Alumni Profile Update Failed')
+            return redirect('DashBoard:alumniProfile')

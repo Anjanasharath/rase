@@ -12,12 +12,9 @@ class ProfileView(View):
     def get(self, request):
         try:
             student = Student.objects.get(user=request.user.id)
-            form = StudentForm(instance=student)
-            template = 'DashBoard/student/edit.html'
+            return redirect('DashBoard:studentProfile')
         except:
             alumni = Alumni.objects.get(user=request.user.id)
-            form = AlumniForm(instance=alumni)
-            template = 'DashBoard/alumni/edit.html'
-        return render(request, template, {'form':form})
+            return redirect('DashBoard:alumniProfile')
 
         
