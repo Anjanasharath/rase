@@ -24,7 +24,7 @@ class AddQuestionView(View):
 
 class ListQuestionView(View):
     def get(self, request):
-        questions = Question.objects.filter(user=request.user.id)
+        questions = Question.objects.all()
         return render(request, 'DashBoard/question/list.html', {'questions': questions})
 
 
