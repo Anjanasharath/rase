@@ -1,0 +1,37 @@
+{% extends "Home/base.html" %}
+{% block title %}Job Offers{% endblock %}
+{% block content %}
+<div class="container h-100">
+    <div class="row align-items-center justify-content-center h-100">
+        <div class="">
+            <center>
+                <h1>Gallery</h1>
+            </center>
+
+            {% if images %}
+            <div class="row">
+                {% for image in images %}
+                <div class="col-md-4">
+                    <div class="thumbnail">
+                        <a href="{{ image.image.url }}">
+                            <img src="{{ image.image.url }}" alt="{{ image.title }}" style="width:400px">
+                            <div class="caption" style="text-align: center;">
+                                <p>{{ image.title }}</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                {% if forloop.counter|divisibleby:3 %}
+            </div>
+            <div class="row">
+                {% endif %}
+                {% endfor %}
+            </div>
+            {% else %}
+            <p>No images found.</p>
+            {% endif %}
+        </div>
+
+    </div>
+</div>
+{% endblock %}

@@ -26,8 +26,10 @@
 <body>
     <div class="sidebar">
         <div class="logo-details">
+            <a href="{% url 'DashBoard:home' %}">
+                <span style="margin-left :35px ;" class="logo_name">RASE</span>
 
-            <span style="margin-left :35px ;" class="logo_name">RASE</span>
+            </a>
         </div>
         <ul class="nav-links">
             <li>
@@ -40,6 +42,12 @@
                 <a href="{% url 'Blog:blog_list' %}">
                     <i class='bx bx-edit-alt'></i>
                     <span class="links_name">Blogs</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'DashBoard:listGallery' %}">
+                    <i class='bx bx-image-alt'></i>
+                    <span class="links_name">Gallery</span>
                 </a>
             </li>
             {% if user.is_staff %}

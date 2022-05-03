@@ -39,3 +39,10 @@ class Alumni(models.Model):
     jobStatus = models.CharField(max_length=100)
     contactNo = models.CharField(max_length=13)
     user = models.OneToOneField('auth.User', on_delete=models.CASCADE)
+
+
+class Gallery(models.Model):
+    title = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='gallery/')
+    user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)

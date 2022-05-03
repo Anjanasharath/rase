@@ -23,6 +23,12 @@ urlpatterns = [
     path('job/<int:pk>/edit', EditJobOfferView.as_view(), name='editJobOffer'),
     path('job/<int:pk>/delete', DeleteJobView.as_view(), name='deleteJobOffer'),
 
+    path('Gallery/', AllGalleryView.as_view(), name='allGallery'),
+    path('gallery/', ListGalleryView.as_view(), name='listGallery'),
+    path('gallery/add/', AddGalleryView.as_view(), name='addGallery'),
+    path('gallery/<int:pk>/delete', DeleteGalleryView.as_view(), name='deleteGallery'),
+    path('gallery/<int:pk>/edit', EditGalleryView.as_view(), name='editGallery'),
+
     path('profile/student', UpdateStudentProfile.as_view(), name='studentProfile'),
     path('profile/alumni', UpdateAlumniProfile.as_view(), name='alumniProfile'),
 
