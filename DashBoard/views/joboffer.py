@@ -19,7 +19,7 @@ class AddJobOfferView(View):
             form = JobOfferForm(data)
             if form.is_valid():
                 form.save()
-                return redirect('DashBoard:jobOffer ')
+                return redirect('DashBoard:jobOffer')
             messages.error(request, form.errors)
             return render(request, 'DashBoard/job/add.html', {'form': form, 'errors': form.errors})
         return redirect('/login/')

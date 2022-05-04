@@ -16,7 +16,7 @@ class AddQuestionView(View):
         form = QuestionForm(data)
         if form.is_valid():
             form.save()
-            messages.success('Question Added ')
+            messages.success(request, 'Question Added ')
             return redirect('DashBoard:question')
         messages.error(request, 'error')
         return redirect('DashBoard:question')
