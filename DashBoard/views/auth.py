@@ -55,7 +55,7 @@ class RegisterView(View):
         if form.is_valid():
             user = form.save()
             data = request.POST.copy()
-            data['user'] = user.id
+            data['user'] = user.ids
             if 'student' in request.build_absolute_uri():
                 profileform = StudentForm(data)
                 template = 'Home/registerstudent.html'
@@ -75,7 +75,8 @@ class RegisterView(View):
         else:
             for msg in form.error_messages:
                 messages.warning(request, f"{msg}: {form.error_messages[msg]}")
-        return render(request, template, {'form': form, 'profileform': profileform})
+        # return redirect to the same page
+        return redirect(request.build_absolute_uri())
     
 
 class PasswordChangeView(View):
