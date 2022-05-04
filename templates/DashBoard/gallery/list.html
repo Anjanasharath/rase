@@ -1,0 +1,43 @@
+{% extends 'Admin/base.html' %}
+{% block title %}List Images{% endblock %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <h2>Gallery Images</h2>
+    <a href="{% url 'DashBoard:addGallery' %}">
+        <button type="button" class="btn btn-primary">Add Images</button>
+    </a>
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}" role="alert">
+        {{ message.message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Image</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for image in images %}
+            <tr>
+                <td>{{ image.id }}</td>
+                <td>{{ image.title }}</td>
+                <td><img src="{{ image.image.url }}" alt="{{image.title}}" width="100px" height="100px"></td>
+                <td>
+                    <a href="{% url 'DashBoard:editGallery' image.id %}" class="btn btn-primary">Edit</a>
+                    <a href="{% url 'DashBoard:deleteGallery' image.id %}" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+</div>
+{% endblock %}

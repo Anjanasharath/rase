@@ -77,7 +77,6 @@ class RegisterView(View):
         else:
             for msg in form.error_messages:
                 messages.warning(request, f"{msg}: {form.error_messages[msg]}")
-        # return redirect to the same page
         return redirect(request.build_absolute_uri())
     
 
