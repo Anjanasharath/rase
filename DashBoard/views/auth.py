@@ -55,7 +55,7 @@ class RegisterView(View):
         if form.is_valid():
             user = form.save()
             data = request.POST.copy()
-            data['user'] = user.ids
+            data['user'] = user.id
             if 'student' in request.build_absolute_uri():
                 profileform = StudentForm(data)
                 template = 'Home/registerstudent.html'
