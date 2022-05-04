@@ -52,6 +52,8 @@ class RegisterView(View):
 
     def post(self, request):
         form = SignUpForm(request.POST)
+        print(form.is_valid())
+        print(request.POST)
         if form.is_valid():
             user = form.save()
             data = request.POST.copy()
